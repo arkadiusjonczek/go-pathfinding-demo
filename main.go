@@ -46,9 +46,8 @@ func (g *Game) Draw(screen *ebiten.Image) {
 
 	for y := 0; y < rows; y++ {
 		for x := 0; x < cols; x++ {
-			var clr color.RGBA
+			clr := color.RGBA{255, 255, 255, 255}
 			if g.matrix[y][x] {
-				clr = color.RGBA{255, 255, 255, 255}
 				vector.FillRect(
 					screen,
 					float32(x*tileSize),
@@ -59,7 +58,6 @@ func (g *Game) Draw(screen *ebiten.Image) {
 					false,
 				)
 			} else {
-				clr = color.RGBA{255, 255, 255, 255}
 				vector.StrokeRect(
 					screen,
 					float32(x*tileSize),
